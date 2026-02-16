@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>Notes App</title>
+</head>
+<body>
+
+<h1>📝 Notes App</h1>
+<p><a href="/logout">LOGOUT</a></p>
+<form action="/add" method="POST">
+    <input type="text" name="note" placeholder="Write a note">
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    {% for note in notes %}
+        <li>{{ note }}
+              <span>
+                <a href="/edit/{{ loop.index0 }}">✏️</a>
+                <a href="/delete/{{ loop.index0 }}">❌</a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+
+
+</body>
+</html>
